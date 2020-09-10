@@ -1,0 +1,49 @@
+---
+title: "HUDK4050 Entrance Survey"
+author: "Charles Lang"
+date: "9/9/2020"
+output: html_document
+---
+
+# Read in the data
+```{r}
+DF <- read.csv("hudk4050-entrance-survey.csv", header = TRUE)
+
+mode(DF$program)
+
+```
+# Simple math
+```{r}
+7 + 8
+8/2
+x <- 8/12
+mode(x)
+x
+```
+
+# Variable manipulation
+```{r}
+mean(DF$UTC)
+
+DF$UTC.ms <- DF$UTC*DF$math.stat
+
+```
+
+# Logic
+```{r}
+DF$program2 <- ifelse(DF$program == "Learning Analytics", 1, 2)
+```
+
+# Sequences & Samples
+```{r}
+x <- seq(0,1,0.001)
+y <- sample(DF$groupwork, 1001, replace = TRUE)
+```
+
+# Base Graphics
+```{r}
+plot(DF$programming)
+
+plot(DF$UTC.ms~ DF$math.stat)
+```
+
