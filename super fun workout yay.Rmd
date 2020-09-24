@@ -4,7 +4,6 @@ author: "Charles Lang"
 date: "9/10/2020"
 output: html_document
 ---
-
 opt + cmd + i (Mac)
 ctrl + alt + i (Windows)
 
@@ -12,7 +11,122 @@ ctrl + alt + i (Windows)
 DF <- read.csv("hudk4050-entrance-survey.csv", header = TRUE) 
 
 is.numeric(DF$program)
+
+write.csv(DF, "survey-update.csv", row.names = FALSE)
 ```
 
-cmd + enter
-shift + enter
+#Vector: *logical*, *integer*, *double*, *character*, complex and raw
+```{r}
+x <- c(1,2,3)
+x
+mode(x)
+
+y <- c("a","b","c")
+y
+mode(y)
+
+
+```
+
+#Factor = list of vectors
+```{r}
+z <- as.factor(y)
+mode(z)
+```
+
+#Dataframe
+```{r}
+Z <- data.frame(z)
+Z
+```
+
+#Sequences
+```{r}
+x <- c(1,2,3)
+
+seq(1,10,1)
+
+rep(1,10)
+
+sample(y, 10, replace = TRUE)
+```
+#Simulate some data
+```{r}
+s <- seq(1,100,1)
+
+s1 <- sample(s, 1000, replace = TRUE)
+
+p <- seq(0.01,1,0.01)
+s2 <- sample(s, 1000, prob = p, replace = TRUE)
+```
+
+#Plot
+
+Three skill levels in visualization:
+1. Base R
+2. ggplot2/Lattice
+3. Interactive
+
+```{r}
+plot(s1,s2)
+plot(s1~s2)
+```
+
+#Cross Tabs
+```{r}
+t <- table(s2)
+t
+
+plot(t)
+
+hist(t)
+
+hist(t, breaks = 10)
+
+hist(t, breaks = c(seq(0,26,2)))
+
+hist(t, breaks = c(seq(0,26,2)), 
+     xlab = "Random Sample", 
+     main = "Our Random Sample",
+     ylim = c(0,10))
+
+library(dplyr)
+library(tidyr)
+
+DF3 <- DF2 %>% summarise(mean.deadline = mean(deadline))
+
+```
+
+```{r}
+barplot(t)
+
+barplot(t, horiz = TRUE)
+```
+
+```{r}
+boxplot(s1,s2)
+
+boxplot(s1,s2, 
+        horizontal = TRUE, 
+        notch = TRUE,
+        col = "blue",
+        border = "red")
+```
+
+```{r}
+hist(DF$compare.shopping)
+hist(DF$discussion)
+
+boxplot(DF$compare.shopping~DF$programming,
+        ylab = "Do you compare features when shopping?",
+        xlab = "Programming Experience")
+
+plot(DF$compare.shopping, DF$discussion)
+
+DF2 <- DF[,5:9]
+
+pairs(DF2)
+
+
+```
+
