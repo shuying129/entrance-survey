@@ -1,0 +1,18 @@
+---
+title: "entance survey super funk"
+author: "Charles Lang"
+date: "9/10/2020"
+output: html_document
+---
+
+opt + cmd + i (Mac)
+ctrl + alt + i (Windows)
+
+```{r}
+DF <- read.csv("hudk4050-entrance-survey.csv", header = TRUE) 
+
+is.numeric(DF$program)
+```
+
+cmd + enter
+shift + enter
