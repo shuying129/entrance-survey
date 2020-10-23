@@ -1,0 +1,26 @@
+---
+title: "workout1 yeah!"
+author: "Shuying Xiong"
+date: "10/23/2020"
+output: html_document
+---
+
+cheer u
+```{r}
+DF<-read.csv("hudk4050-entrance-survey.csv", header=TRUE)
+mode(DF$program)
+is.character(DF$program)
+```
+#simple math
+```{r}
+7+9
+8/10
+x<-8/12
+mode(x)
+```
+#variable manipulation
+```{r}
+mean(DF$UTC)
+DF$UTC.ms<-DF$UTC*DF$math.stat
+```
+
