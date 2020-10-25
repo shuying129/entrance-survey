@@ -24,3 +24,74 @@ mean(DF$UTC)
 DF$UTC.ms<-DF$UTC*DF$math.stat
 ```
 
+#vector
+```{r}
+x <- c(1,2,3)
+x
+mode(x)
+```
+
+```{r}
+y <- c("a","b","c","d","e","f","g")
+
+sample(y,8,replace= TRUE)
+
+```
+
+```{r}
+s <- seq(1,100,1)
+
+s1 <- sample(s,1000,replace=TRUE)
+
+p <- seq(0.01,1,0.01)
+
+s2 <- sample(s,1000,prob = p,replace = TRUE)
+```
+
+```{r}
+plot(s1,s2)
+plot(s1~s2)
+
+t <- table(s2)
+t
+
+plot(t)
+
+hist(t)
+
+xlab = "Random Sample"
+
+hist(t, breaks = 10,
+     xlab = "Random Sample" ,
+     main = "Our Random Sample" ,
+     ylim = c(0,10))
+
+
+
+barplot(t)
+
+barplot(t, horiz = TRUE)
+
+```
+
+```{r}
+hist(DF$compare.shopping)
+hist(DF$discussion)
+boxplot(DF$compare.shopping~DF$programming,
+        ylab = "Do you compare features when shopping?",
+        xlab = "Programing Experience")
+plot(DF$compare.shopping,DF$discussion)
+
+DF2 <- DF[,5:9]
+pairs(DF2)
+```
+
+```{r}
+
+```
+
+
+
+
+
+
